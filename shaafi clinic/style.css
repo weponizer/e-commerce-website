@@ -1,0 +1,163 @@
+
+/* ===== SHAafi HEALTH CARE ANIMATIONS ===== */
+
+/* Hero entrance */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-45px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(45px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.hero .eyebrow {
+  animation: fadeUp .7s ease both;
+}
+
+.hero h1 {
+  animation: slideInLeft .85s ease .1s both;
+}
+
+.hero p {
+  animation: fadeUp .8s ease .25s both;
+}
+
+.hero .actions {
+  animation: fadeUp .8s ease .4s both;
+}
+
+.heroimage {
+  animation: slideInRight 1s ease .15s both;
+}
+
+.floatcard {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .75s ease, transform .75s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Facility cards */
+.servicecard {
+  transition: transform .35s ease,
+              box-shadow .35s ease,
+              border-color .35s ease;
+}
+
+.servicecard:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 18px 38px rgba(8,127,140,.13);
+  border-color: #a8d9d3;
+}
+
+.serviceicon {
+  transition: transform .35s ease, background .35s ease;
+}
+
+.servicecard:hover .serviceicon {
+  transform: scale(1.1) rotate(-5deg);
+  background: #d5f1ec;
+}
+
+/* Buttons */
+.btn {
+  transition: transform .25s ease,
+              box-shadow .25s ease,
+              background .25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(8,127,140,.2);
+}
+
+.btn:active {
+  transform: scale(.97);
+}
+
+/* About image */
+.aboutimage img {
+  transition: transform .6s ease;
+}
+
+.aboutimage:hover img {
+  transform: scale(1.025);
+}
+
+/* Reviews */
+.reviewcard {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.reviewcard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(18,51,68,.09);
+}
+
+/* WhatsApp floating button */
+.whatsapp {
+  animation: float 3s ease-in-out infinite;
+  transition: box-shadow .3s ease, background .3s ease;
+}
+
+.whatsapp:hover {
+  background: #159d54;
+  box-shadow: 0 8px 26px rgba(32,185,103,.35);
+}
+
+/* Navigation */
+.links a {
+  position: relative;
+  transition: color .25s ease;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background: var(--teal);
+  transition: width .3s ease;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
